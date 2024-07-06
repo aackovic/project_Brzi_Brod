@@ -1,0 +1,266 @@
+<!-- Ema Paunović 0028/2021 -->
+<!-- Andrej Ačković 0263/2021 -->
+<!-- Jelena Blagojević 0029/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+    {{ naziv }}
+{% endblock %}
+{% block titleArea %}
+    <div class="row" style="width: 100%;"> <!---Quick fix bilo je bez row-->
+        <div class="col-lg-4 col-12 bg-transparent">
+            &nbsp;
+        </div>
+        <div class="col-lg-4 col-12">
+            <img src="{% static 'StudAssistLogo-removebg.png' %}">
+            <h1 class="main-title">Menza - {{ naziv }}</h1>
+        </div>
+        <div class="col-lg-4 col-12 bg-transparent" align="center">
+            <div class="col-12 active-table" id="stanje-container">
+                {% include 'stanje_snippet.html' with stanje=stanje %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12 flex-container">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 personal-menza season-menu">
+                <div class="d-flex align-items-start">
+                    <div class="nav flex-column nav-pills me-3 col-md-3" id="v-pills-tab" role="tablist"
+                         aria-orientation="vertical" style="--bs-nav-pills-link-active-bg: orange;
+                         --bs-nav-pills-link-active-color: whitesmoke; --bs-nav-link-color: black;
+                        --bs-nav-link-hover-color: hotpink">
+                        {% for dan in obroci_dani %}
+                            <button class="nav-link" id="v-pills-{{ dan.dan }}" data-bs-toggle="pill"
+                                    data-bs-target="#v-tab-home-{{ dan.dan }}" type="button" role="tab"
+                                    aria-controls="v-pills-home" aria-selected="false">{{ dan.dan }}</button>
+
+                        {% endfor %}
+                    </div>
+                    <div class="tab-content col-md-8" id="v-pills-tabContent">
+                        {% for dan in obroci_dani %}
+                            <div class="tab-pane fade show v-pills-home" id="v-tab-home-{{ dan.dan }}" role="tabpanel"
+                                 aria-labelledby="v-pills-{{ dan.dan }}">
+                                <div class="daily-menu">
+                                    <h5>Doručak:</h5>
+                                    {% for obrok in dan.dorucak %}
+                                        <p>{{ obrok }}<p>
+                                    {% endfor %}
+                                </div>
+                                <div class="daily-menu">
+                                    <h5>Ručak:</h5>
+                                    {% for obrok in dan.rucak %}
+                                        <p>{{ obrok }}<p>
+                                    {% endfor %}
+                                </div>
+                                <div class="daily-menu">
+                                    <h5>Večera:</h5>
+                                    {% for obrok in dan.vecera %}
+                                        <p>{{ obrok }}<p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 personal-menza info-menza">
+                <div>
+                    <iframe
+                            width="500"
+                            height="300"
+                            style="border:0"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBSPC8g3HE4mkJkMn8yjzz7i7_X3PWLqKo
+    &q={{ lokacija }}">
+                    </iframe>
+                </div>
+                <h4>Radno vreme:</h4>
+                <p>Doručak: {{ radnoDorucak }}</p>
+                <p>Ručak: {{ radnoRucak }}</p>
+                <p>Večera: {{ radnoVecera }}</p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 personal-menza div-rate">
+                <h3>Prosečna ocena</h3>
+                <div>
+                    <div class="rounded-circle rating">
+                        {{ prosecnaOcena }}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="user-content">
+                        <h5 class="mb-0">{{ prvaRecenzija.imeprezime }}</h5>
+                        <span>{{ prvaRecenzija.opis }}</span>
+                        <p class="teloRecenzije">{{ prvaRecenzija.komentar }}</p>
+                        <p class="datumRecenzije">{{ prvaRecenzija.datum }}</p>
+                    </div>
+
+                    <div class="ratings">
+                        {% for ocena in prvaRecenzija.ocene %}
+                            <span class="fa fa-star {{ ocena }}"></span>
+                        {% endfor %}
+                    </div>
+                </div>
+            <button type='button' class="btn expand-btn" data-bs-toggle="modal" data-bs-target="#moreReviewsModal">Vidi još recenzija</button>
+            {% if cond %}
+                <button type='button' class="btn expand-btn" data-bs-toggle="modal" data-bs-target="#reviewModal">Ostavi recenziju</button>
+            {% endif %}
+        </div> 
+    </div>
+</div>
+
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="qrModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="qrModalLabel1" style="color: black;">Recenzija</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="overflow-x:auto;">
+                <form id="recenzijaForm" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="descr" class="form-label">Opis</label>
+                        <input type="text" class="form-control" id="descr" placeholder="Unesite kratak opis ovde..." name="descr" required>
+                    </div>
+                    <div class="mb-3">
+                        Ocena
+                        <div class="ratings mt-2" id="rate">
+                            <span class="fa fa-star" data-rating="1"></span>
+                            <span class="fa fa-star" data-rating="2"></span>
+                            <span class="fa fa-star" data-rating="3"></span>
+                            <span class="fa fa-star" data-rating="4"></span>
+                            <span class="fa fa-star" data-rating="5"></span>
+                        </div>
+                        <input type="hidden" name="rating" id="rating" value="0" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Recenzija</label>
+                        <textarea class="form-control" id="comment" rows="5" placeholder="Tvoja recenzija ide ovde..." name="comment"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Oceni</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    
+    <div class="modal fade" id="moreReviewsModal" tabindex="-1" aria-labelledby="qrModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="qrModalLabel2" style="color: black;">Karaburma - Recenzije</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="container justify-content-left mt-2">
+                <div class="dropdown">
+                    <b>Sortirajte</b>
+                    <br>
+                    <select name="" id="dropdownMenu">
+                        <option value="-datumvreme">Po vremenu opadajuće</option>
+                        <option value="datumvreme">Po vremenu rastuće</option>
+                        <option value="-ocena">Po oceni opadajuće</option>
+                        <option value="ocena">Po oceni rastuće</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-body pt-0" id="recenzijePrikaz">
+                {% include 'recenzije_snippet.html' with stanje=stanje %}
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.ratings .fa-star').on('click', function() {
+                var rating = $(this).data('rating');
+                $('#rating').val(rating);
+    
+                $('.ratings .fa-star').removeClass('checked');
+    
+                $(this).addClass('checked');
+                $(this).prevAll('.fa-star').addClass('checked');
+            });
+
+            function refreshData() {
+                $.ajax({
+                    url: '{% url 'refresh' name=naziv %}',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        $('#stanje-container').html(response.html);
+                        txt = $('#stanje-container').text();
+                        if (txt.includes("otvoreno")) {
+                            $('#tabla-stanje').css('color', 'lightgreen');
+                        } else {
+                            $('#tabla-stanje').css('color', 'red');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('AJAX Error: ', status, error);
+                    }
+                })
+            }
+
+            refreshData();
+            setInterval(refreshData, 5000);
+
+            $('#dropdownMenu').change(function(){
+                sortVal = $(this).val();
+                if(sortVal){
+                    $.ajax({
+                        url: "{% url 'menza_sort' menza=idMenze sortVal=123%}".replace(/123/,sortVal), 
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(response){
+                            $('#recenzijePrikaz').html(response.html);
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('AJAX Error: ', status, error);
+                        }
+                    });
+                }
+            })
+        
+        })
+        function delayedAlert(message, type) {
+            setTimeout(function () {
+                var icon = 'info'; // Default icon
+                if (type === 'success') {
+                    icon = 'success';
+                } else if (type === 'error') {
+                    icon = 'error';
+                }
+
+                Swal.fire({
+                    text: message,
+                    icon: icon
+                });
+            }, 200); // Display alert after 200 milliseconds
+        }
+
+        // Check if messages are available from Django
+        {% if messages %}
+            {% for message in messages %}
+                // Extract message content and type (if available)
+                var messageContent = "{{ message }}";
+                var messageType = "{{ message.tags }}"; // This will be 'success', 'error', or ''
+                // Call delayedAlert function with message content and type
+                delayedAlert(messageContent, messageType);
+            {% endfor %}
+        {% endif %}
+    </script>
+
+{% endblock %}

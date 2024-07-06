@@ -1,0 +1,25 @@
+<!-- Ema Paunović 0028/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+Menze
+{% endblock %}
+{% block titleArea %}
+<img src="{% static 'StudAssistLogo-removebg.png' %}">
+<h1 class="main-title">Studentski restorani</h1>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="flex-container">
+            {% for menza in menze %}
+                <div class="flex-item">
+                <a href="{% url 'menza' naziv=menza.naziv %}"><img src="data:image/jpeg;base64,{{ menza.slika }}"></a><br>
+                <a class="menza-name" href="{% url 'menza' naziv=menza.naziv %}"><h4>{{ menza.naziv }}</h4></a><br>
+                <a class="menza-loc" target="_blank" href="https://www.google.com/maps/search/?api=1&query={{ menza.lokacija }}">{{ menza.adresa }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

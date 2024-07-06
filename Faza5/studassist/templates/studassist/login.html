@@ -1,0 +1,49 @@
+<!-- Zlatko Golubović 0089/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+Login
+{% endblock %}
+{% block titleArea %}
+<img src="{% static 'StudAssistLogo-removebg.png' %}" width="200px" class="img-fluid">
+<h1 class="main-title">Prijavljivanje</h1>
+{% endblock %}
+{% block content %}
+<div class="row mb-2 justify-content-center">
+    <div class="col-sm-5">
+        <form id="form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{form.username.label}}<br>
+                {{form.username}}
+            </div>
+            <div class="form-group">
+                {{form.card_number.label}}<br>
+                {{form.card_number}}
+            </div>
+            <div class="form-group">
+                {{form.password.label}}<br>
+                {{form.password}}
+            </div>
+            <ul>
+                {% if form.errors %}
+                    {% for field in form.fields %}
+                        {% for error in field.errors %}
+                            <li>{{error}}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{error}}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+            <button type="submit" class="btn btn-primary mt-2" id="">Prijavite se</button>
+        </form>
+        <hr>
+        <form>
+            <p class="logintext">Nemate kreiran nalog?</p>
+            <a class="btn btn-primary" href="{% url 'registracija' %}">Registrujte se</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

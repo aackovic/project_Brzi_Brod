@@ -1,0 +1,17 @@
+<!-- Jelena Blagojević 0029/2021 -->
+<!-- Ema Paunović 0028/2021 -->
+{% for recenzija in recenzije %}
+    <div class="card">
+        <div class="user-content">
+            <h5 class="mb-0">{{recenzija.imeprezime}}</h5>
+            <span>{{recenzija.opis}}</span>
+            <p class="teloRecenzije">{{recenzija.komentar}}</p>
+            <p class="datumRecenzije">{{recenzija.datum}}</p>
+        </div>
+        <div class="ratings">
+            {% for ocena in recenzija.ocene %}
+                <span class="fa fa-star {{ocena}}"></span>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

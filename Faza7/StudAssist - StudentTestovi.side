@@ -1,0 +1,1137 @@
+{
+  "id": "59153dfb-a015-4433-9545-6fde7fc387c5",
+  "version": "2.0",
+  "name": "StudAssist",
+  "url": "http://127.0.0.1:8000",
+  "tests": [{
+    "id": "e39e0ada-6291-4095-b5a8-818ab38becb4",
+    "name": "Login",
+    "commands": [{
+      "id": "f2ee0a36-274b-4d3e-97dc-8d1d57ebbac5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ad3e080-cc02-4208-b00c-311c171e6776",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8795796e-ccde-48e1-b61e-9b8ed32f9bef",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/login/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b42dc33-020f-46c7-8829-0a84e33fefd5",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c27278a-47fd-4ec2-8996-f1ad5c903da9",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "abc"
+    }, {
+      "id": "4dfe38f4-b5a7-487e-9dc4-67b6adc6023f",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fcc97224-0b6e-4c5b-aa78-09a09295f627",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12234254dsfgs"
+    }, {
+      "id": "48013e9c-e777-47e6-9cd8-ef20cdf2a6fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=//button[@id='']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavite se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf332cef-862a-4201-aca7-952087a31343",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=ul:nth-child(5) > li",
+      "targets": [
+        ["css=ul:nth-child(5) > li", "css:finder"],
+        ["xpath=//form[@id='form']/ul/li", "xpath:idRelative"],
+        ["xpath=//form/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Nekorektni kredencijali.')]", "xpath:innerText"]
+      ],
+      "value": "Nekorektni kredencijali."
+    }]
+  }, {
+    "id": "d6c3dc72-f00a-493a-adf9-e9fc096e39f8",
+    "name": "Test_Student_Bon",
+    "commands": [{
+      "id": "383ea284-c03c-41e2-a83e-2b9839933478",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f44c0836-b337-485a-b08d-6e8b4ec2d7a0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51f90b48-4a34-40a3-87a7-4bf34caa467a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f8ad728-0eeb-4b11-8b4f-316b1d1de9d5",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn-secondary:nth-child(3)",
+      "targets": [
+        ["css=.btn-secondary:nth-child(3)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Bon')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed2f0e22-efd7-46af-92eb-596ae3bbf954",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-secondary:nth-child(3)",
+      "targets": [
+        ["css=.btn-secondary:nth-child(3)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Bon')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b60a0fcc-ae8e-4065-8efa-b92ccbaa1cc2",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn-secondary:nth-child(3)",
+      "targets": [
+        ["css=.btn-secondary:nth-child(3)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Bon')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "602b6914-1f97-4651-a1cf-360284bdcc62",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=#qrcodeBon > img",
+      "targets": [
+        ["css=#qrcodeBon > img", "css:finder"],
+        ["xpath=//img[contains(@src,'data:image/png;base64,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')]", "xpath:img"],
+        ["xpath=//div[@id='qrcodeBon']/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef7c9177-b9bf-49f2-af77-a73ef2173067",
+      "comment": "",
+      "command": "click",
+      "target": "id=qrObrok",
+      "targets": [
+        ["id=qrObrok", "id"],
+        ["css=#qrObrok", "css:finder"],
+        ["xpath=//div[@id='qrObrok']", "xpath:attributes"],
+        ["xpath=//body/div/div[3]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e01735c2-5992-4d36-a229-1ab3ebd2162c",
+    "name": "Test_Student_Pregled_Zetona",
+    "commands": [{
+      "id": "8b19f1fd-06e4-4ce9-84bd-fbfb5568c9e1",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc783269-c504-4df7-96d9-5117a387972e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e662a0d3-f46f-4b9a-a760-a8ed6f1d6bf6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f060a9e-1be1-43a5-a5df-53018f5e444f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(5)",
+      "targets": [
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//button[3]", "xpath:position"],
+        ["xpath=//button[contains(.,'Moj žeton')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8944fd42-8bbc-48ab-bb84-867046d366fe",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=#qrcodeToken > img",
+      "targets": [
+        ["css=#qrcodeToken > img", "css:finder"],
+        ["xpath=(//img[contains(@src,'data:image/png;base64,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')])[2]", "xpath:img"],
+        ["xpath=//div[@id='qrcodeToken']/img", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e0bc13cf-fce9-46fc-a2d0-055d81af30c7",
+    "name": "Test_Student_Kupi_Zeton_Uspesno",
+    "commands": [{
+      "id": "6d819446-2369-44e5-864d-862cf9f13b6b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f5d99987-e5ed-4444-9134-e0156d4a5f25",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "570c4fd4-82bf-413a-bb11-47a6e3a8b335",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1c122d2-d662-4712-84db-f33142fdc778",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi žeton')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e937544f-468c-4e1e-a90e-13c4490b33ee",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='zetonForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": "41.734375,13.8125"
+    }, {
+      "id": "32b0a05e-f7e8-491a-9c89-62e6dac95ebb",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='zetonForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": "41.734375,13.8125"
+    }, {
+      "id": "a81bcb90-0244-4307-950f-b32daf3c28a5",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='zetonForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": "41.734375,13.8125"
+    }, {
+      "id": "cfa4fe10-2f36-4a81-a2ac-ddf373cf1760",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='zetonForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd47754d-f2e4-4101-87f7-71d22e8a890b",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Žeton je uspešno kupljen"
+    }, {
+      "id": "e20c5713-93f7-4e14-a116-64ab41381088",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[8]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bd2d93ee-9df9-45a4-9927-6e9c58e95a2e",
+    "name": "Test_Student_Kupi_Dorucak",
+    "commands": [{
+      "id": "73078a74-5b13-4876-85ef-b5f0a58c595a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40c50f35-5c41-44f5-9215-1222b42af82f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b5cb58c9-868e-4800-ac4c-28192bf08dea",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "33e01d20-0448-497d-9aec-fd6ed4734733",
+      "comment": "",
+      "command": "click",
+      "target": "id=kupovinaBonova",
+      "targets": [
+        ["id=kupovinaBonova", "id"],
+        ["css=#kupovinaBonova", "css:finder"],
+        ["xpath=//button[@id='kupovinaBonova']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi bonove')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cfac4c2a-b224-4346-b3c2-fe5828a256f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=#d_10 > .btn",
+      "targets": [
+        ["css=#d_10 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//form[@id='d_10']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+10')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1033855f-bee5-463c-afac-aa8b7f7cd749",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Obrok je kupljen"
+    }]
+  }, {
+    "id": "8f3e4a07-fd81-4263-a760-4915f314950b",
+    "name": "Test_Student_Kupi_Rucak",
+    "commands": [{
+      "id": "bf44cef7-3dec-489f-be11-5bc3b0ef4382",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ae093be-28e9-4295-9fad-e7a66cb50ae3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8f456a0-0862-4c15-a41e-e9995b191d00",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d20250fc-d1d9-48a5-a09e-b186e173b7fd",
+      "comment": "",
+      "command": "click",
+      "target": "id=kupovinaBonova",
+      "targets": [
+        ["id=kupovinaBonova", "id"],
+        ["css=#kupovinaBonova", "css:finder"],
+        ["xpath=//button[@id='kupovinaBonova']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi bonove')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1724582-ea86-44fb-a403-720b276160a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=#r_5 > .btn",
+      "targets": [
+        ["css=#r_5 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//form[@id='r_5']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3074f0d-4317-4cd0-b140-e20f9e8c58f7",
+      "comment": "",
+      "command": "click",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c21c452-26e1-4808-bc3e-661b24dba276",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Obrok je kupljen"
+    }, {
+      "id": "f1dbf0fb-ffa6-44c1-b365-fb17d0ef92e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[8]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "588e870d-83b5-47d1-ae9f-8ba419f6c5d8",
+    "name": "Test_Student_Kupi_Veceru",
+    "commands": [{
+      "id": "31e54e87-0290-4074-9c28-a381fdf2d216",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2b1076c-9324-4f68-acc4-78ac9fa40114",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6f043bec-6848-40e8-addf-06bf7b8c06f7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f3e3625-0b02-4a04-842f-00505b087ec8",
+      "comment": "",
+      "command": "click",
+      "target": "id=kupovinaBonova",
+      "targets": [
+        ["id=kupovinaBonova", "id"],
+        ["css=#kupovinaBonova", "css:finder"],
+        ["xpath=//button[@id='kupovinaBonova']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi bonove')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f971d0f5-6709-4ddb-9911-08c1bc6d7f94",
+      "comment": "",
+      "command": "click",
+      "target": "css=#v_10 > .btn",
+      "targets": [
+        ["css=#v_10 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[9]", "xpath:attributes"],
+        ["xpath=//form[@id='v_10']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div[4]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f1b7861-b4b6-4a08-b723-1ce44b1c86c7",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Obrok je kupljen"
+    }, {
+      "id": "9ab4e178-e3db-4674-9c6b-0781ef8ba588",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[8]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7f362cad-867f-4b45-84d5-4ecfba972067",
+    "name": "Test_Student_Zeton_Neuspesna_Kupovina",
+    "commands": [{
+      "id": "6c9d3a5f-7dc2-438a-b69e-8d26cfa99149",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "77793786-1f20-4ec6-a6af-b1611e218da2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0087060-9595-49a5-815f-fa0c4c0d644d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "44febc45-5677-42aa-929a-7fe5e03e5b8d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi žeton')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a156812-15ec-44a1-907e-828a7f731c5f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='zetonForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af0724c5-1be7-48c9-b51f-0713edf5001e",
+      "comment": "",
+      "command": "click",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c35f413c-5010-48ae-a1e7-22942e44a433",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Nemate dovoljno novca!"
+    }, {
+      "id": "fd612b61-8112-4bce-b436-be5c2b54683e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[8]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "ba9227af-9f9f-4b89-929b-b6bfc9fcc418",
+    "name": "Test_Student_Kupi_Dorucak_Neuspesno",
+    "commands": [{
+      "id": "2f1f5524-690a-49fe-8a2f-d09dcc42e4c8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "72f5ff37-1072-4541-a1d8-4e0a17451160",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5454621d-ca64-4d67-89bd-347995b77dc9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "60e7fcbd-c469-4c66-9848-abcf02e01960",
+      "comment": "",
+      "command": "click",
+      "target": "id=kupovinaBonova",
+      "targets": [
+        ["id=kupovinaBonova", "id"],
+        ["css=#kupovinaBonova", "css:finder"],
+        ["xpath=//button[@id='kupovinaBonova']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi bonove')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f04403b3-312c-4412-b92d-9e548294d94c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#d_5 > .btn",
+      "targets": [
+        ["css=#d_5 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='d_5']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "82e58ebe-fd2c-4308-a200-464002a43e4e",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Nemate dovoljno novca!"
+    }, {
+      "id": "ca597231-cd07-4105-bd98-485db3e91165",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6f8d1b71-3493-42dd-ae2e-e002d0cc5077",
+    "name": "Test_Student_Kupovina_Obroka_Veliki_Test",
+    "commands": [{
+      "id": "bf4d95ac-469a-426d-a8cf-fb93f5ebb796",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1fb90f3-974e-472e-a1e5-4becd0d88a71",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f579c5c9-a90c-48aa-bc71-b673bdf98349",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a1156ea-639e-4241-81d5-8bf4a5535bb3",
+      "comment": "",
+      "command": "click",
+      "target": "id=kupovinaBonova",
+      "targets": [
+        ["id=kupovinaBonova", "id"],
+        ["css=#kupovinaBonova", "css:finder"],
+        ["xpath=//button[@id='kupovinaBonova']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi bonove')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cfe7e0f6-ad09-471c-b4ee-d36adee40d91",
+      "comment": "",
+      "command": "click",
+      "target": "css=#r_10 > .btn",
+      "targets": [
+        ["css=#r_10 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[6]", "xpath:attributes"],
+        ["xpath=//form[@id='r_10']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[4]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "10edcb36-b4d3-4871-84ee-c44e09c0be21",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#r_10 > .btn",
+      "targets": [
+        ["css=#r_10 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[6]", "xpath:attributes"],
+        ["xpath=//form[@id='r_10']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[4]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9bbcb0e7-a10d-436c-a6b2-785d9e9d0d90",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d31dd195-9c1a-4681-bafc-a6e05600ffe3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Završi kupovinu",
+      "targets": [
+        ["linkText=Završi kupovinu", "linkText"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Završi kupovinu')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '../student/')]", "xpath:href"],
+        ["xpath=//div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Završi kupovinu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "847bfccd-0a13-4618-8f17-effbb93cf567",
+      "comment": "",
+      "command": "click",
+      "target": "id=kupovinaBonova",
+      "targets": [
+        ["id=kupovinaBonova", "id"],
+        ["css=#kupovinaBonova", "css:finder"],
+        ["xpath=//button[@id='kupovinaBonova']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi bonove')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd430abd-37d8-4232-b43b-3f7f810cad0c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#r_5 > .btn",
+      "targets": [
+        ["css=#r_5 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//form[@id='r_5']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc50349d-3de3-4342-9fbb-0c86a704850d",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#r_5 > .btn",
+      "targets": [
+        ["css=#r_5 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//form[@id='r_5']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e61d373-81b8-4d06-8ced-a6ad76565ec6",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#r_5 > .btn",
+      "targets": [
+        ["css=#r_5 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//form[@id='r_5']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "02d8634c-6c2d-409f-bd3a-3f73303164ad",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Nemate dovoljno novca!"
+    }, {
+      "id": "699ca394-2726-4107-aeee-c9b9d019ee05",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77106dcc-34b8-46c1-9d1f-b8f294756fa2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Završi kupovinu",
+      "targets": [
+        ["linkText=Završi kupovinu", "linkText"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Završi kupovinu')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '../student/')]", "xpath:href"],
+        ["xpath=//div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Završi kupovinu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "44d285a5-8062-494e-94c0-bb7cbfa15f71",
+      "comment": "",
+      "command": "click",
+      "target": "id=kupovinaBonova",
+      "targets": [
+        ["id=kupovinaBonova", "id"],
+        ["css=#kupovinaBonova", "css:finder"],
+        ["xpath=//button[@id='kupovinaBonova']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kupi bonove')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2fa8f01-9f99-467b-bbcb-ef4bec335a7a",
+      "comment": "",
+      "command": "click",
+      "target": "css=#v_1 > .btn",
+      "targets": [
+        ["css=#v_1 > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[7]", "xpath:attributes"],
+        ["xpath=//form[@id='v_1']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f50ef08-786b-4dc8-a00f-58c017bf44e9",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Obrok je kupljen"
+    }, {
+      "id": "f6874d6f-32ba-46ab-9642-04c321370acd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[8]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "0c307306-ca92-4610-832f-c60e29a0851a",
+    "name": "Test_Student_Uplati_Novac",
+    "commands": [{
+      "id": "2b412321-42e6-4230-bd23-f42218336813",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f1ce4ecf-6a0b-435c-ab37-a43d1d9ad9c1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1900x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a46a335b-2bcb-4d03-a50c-75f9a5d1b4ec",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=jel",
+      "targets": [
+        ["linkText=jel", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'jel')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/profilna/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'jel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c80d4bc1-71e4-41c3-83e5-7d6d8c773d8b",
+      "comment": "",
+      "command": "click",
+      "target": "id=uplatiNovac",
+      "targets": [
+        ["id=uplatiNovac", "id"],
+        ["css=#uplatiNovac", "css:finder"],
+        ["xpath=//button[@id='uplatiNovac']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Uplati novac')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d9b44d6-16b4-4f9d-9649-1437e4f9b11f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Nastavi na plaćanje']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "70882884-da44-4108-9fcf-63ba2d5dbf7e",
+      "comment": "",
+      "command": "click",
+      "target": "id=payment-submit-btn",
+      "targets": [
+        ["id=payment-submit-btn", "id"],
+        ["css=#payment-submit-btn", "css:finder"],
+        ["xpath=//button[@id='payment-submit-btn']", "xpath:attributes"],
+        ["xpath=//div[@id='hermione-container']/div/main/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Continue to Review Order')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "74fa2cde-cac9-407a-b42c-24867e2e031d",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Uplata uspešno izvršena"
+    }, {
+      "id": "39ea6e74-68a1-4882-b613-70a9c00d37c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[8]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "2bb299fd-3d31-428a-b785-e9eecafee6fc",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e39e0ada-6291-4095-b5a8-818ab38becb4"]
+  }],
+  "urls": ["http://127.0.0.1:8000/"],
+  "plugins": []
+}

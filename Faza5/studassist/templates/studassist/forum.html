@@ -1,0 +1,41 @@
+<!-- Andrej Ačković 0263/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+Forum
+{% endblock %}
+{% block titleArea %}
+<img src="{% static 'StudAssistLogo-removebg.png' %}">
+<h1 class="main-title">Forum</h1>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class ="container-fluid sadrzaj col-sm-12">
+        {% for kategorija in kategorije %}
+        <div class="podForum">
+            <div class="podForum-naslov col-lg-10 text-forum-heading">
+                <h1>{{kategorija.naziv}}</h1>
+            </div>
+            {% for tema in kategorija.teme %}
+            <div class="podForumOdgovor-row flex-container text-forum-text">
+                <div class="col-lg-8 col-sm-12 col-12 forum-item-big forum-item">
+                    <h4><a href="{% url 'podforum' naziv=tema.naziv%}">{{tema.naziv}}</a></h4>
+                    <p>{{tema.opis}}</p>
+                </div>
+                <div class="col-lg-2 col-sm-12 col-12 forum-item forum-item-big center">
+                    Odgovora: &ensp; <b>{{tema.brOdg}}</b>
+                </div>
+                <div class="col-lg-2 col-sm-12 col-12 forum-item">
+                    <b>Poslednji izmenio korisnik</b><br><b style="color: #234896; font-style: italic;">{{tema.lastKorisnikImePrezime}}</b>
+                    <br>{{tema.lastKorisnikTip}}
+                    <br><small>{{tema.lastOdg.datumvreme}}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <hr style="height: 8px; color: white;">
+        {% endfor %}
+    </div>       
+</div>
+{% endblock %}

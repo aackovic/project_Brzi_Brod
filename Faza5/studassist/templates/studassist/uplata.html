@@ -1,0 +1,61 @@
+<!-- Jelena Blagojević 0029/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+    Uplata novca na karticu
+{% endblock %}
+{% block titleArea %}
+    <img src="{% static 'StudAssistLogo-removebg.png' %}" width="200px" class="img-fluid">
+    <h1 class="main-title">Uplata</h1>
+{% endblock %}
+{% block content %}
+    <br>
+    <div class="">
+        <div class="form-container d-flex justify-content-center">
+            &nbsp<br>
+            <h4>Trenutno stanje: {{ stanje }}</h4>
+            <br>&nbsp;<br>
+        </div>
+        <div class="form-container d-flex justify-content-center">
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <br>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="Nastavi na plaćanje" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function delayedAlert(message, type) {
+            setTimeout(function () {
+                var icon = 'info'; // Default icon
+                if (type === 'success') {
+                    icon = 'success';
+                } else if (type === 'error') {
+                    icon = 'error';
+                }
+
+                Swal.fire({
+                    text: message,
+                    icon: icon
+                });
+            }, 200); // Display alert after 200 milliseconds
+        }
+
+        // Check if messages are available from Django
+        {% if messages %}
+            {% for message in messages %}
+                // Extract message content and type (if available)
+                var messageContent = "{{ message }}";
+                var messageType = "{{ message.tags }}"; // This will be 'success', 'error', or ''
+                // Call delayedAlert function with message content and type
+                delayedAlert(messageContent, messageType);
+            {% endfor %}
+        {% endif %}
+    </script>
+{% endblock %}

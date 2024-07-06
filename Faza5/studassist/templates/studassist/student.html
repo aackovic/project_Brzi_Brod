@@ -1,0 +1,232 @@
+<!-- Jelena Blagojević 0029/2021 -->
+<!-- Zlatko Golubović 0089/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+    Student
+{% endblock %}
+{% block titleArea %}
+    <img src="{% static 'StudAssistLogo-removebg.png' %}" width="200px" class="img-fluid">
+    <h1 class="main-title">Student</h1>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-4 studentSidebar">
+            <div class="card my-2 sidebar">
+                <div class="card-body">
+                    <img src="{{ img.url }}" alt="Slika studenta" width="150px"
+                         class="rounded-circle img-fluid">
+                    <h3>{{ username }}</h3>
+
+                    <button type="button" class="btn btn-secondary my-1" data-bs-toggle="modal"
+                            data-bs-target="#qrObrok">
+                        Bon
+                    </button>
+                    <button type="button" class="btn btn-secondary my-1" data-bs-toggle="modal"
+                            data-bs-target="#qrModalBuy">
+                        Kupi žeton
+                    </button>
+                    <button type="button" class="btn btn-secondary my-1" data-bs-toggle="modal" data-bs-target="#qrToken">
+                        Moj žeton
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 studentContent">
+            <div class="card my-2 content">
+                <h4 class="p-2">Opšti podaci</h4>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Ime i prezime</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ ime }}&nbsp;{{ prezime }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Email</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ email }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Adresa</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ adresa }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Datum rođenja</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ datumrodjenja }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Telefon</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ brtel }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card my-2 content">
+                <h4 class="p-2">Studentska kartica</h4>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Broj kartice</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ broj_kartice }}
+                        </div>
+                        <hr>
+                        <div class="col-sm-3">
+                            <h5>Stanje na računu</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ stanje }} din
+                        </div>
+                        <hr>
+                        <button class="btn btn-success" id="uplatiNovac">Uplati novac</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2 content">
+                <h4 class="p-2">Stanje obroka</h4>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Doručak</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ dorucak }}
+                        </div>
+                        <hr>
+                        <div class="col-sm-3">
+                            <h5>Ručak</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ rucak }}
+                        </div>
+                        <hr>
+                        <div class="col-sm-3">
+                            <h5>Večera</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ vecera }}
+                        </div>
+                        <hr>
+                        <button class="btn btn-success" id="kupovinaBonova">Kupi bonove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="qrObrok" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content align-items-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel" style="color: black;">Bon</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="qrcodeBon"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="qrModalBuy" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-text modal-dialog-centered">
+            <div class="modal-content align-items-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel">Žeton</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h5>Trenutno stanje: {{ stanje }} din</h5>
+                <h6>Trenutno žetona: {{ zeton }}</h6>
+                <h6>Cena žetona: 1000 din</h6>
+                <form method="post" id="zetonForm">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Kupi žeton</button>
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="qrToken" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content align-items-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel" style="color: black;">Žeton</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="qrcodeToken"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <script type="text/javascript">
+        var brojKartice = "{{broj_kartice}}";
+        new QRCode(document.getElementById("qrcodeToken"), brojKartice);
+        new QRCode(document.getElementById("qrcodeBon"), brojKartice);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById("uplatiNovac").onclick = function (){
+            window.location.href = "{% url 'uplata' %}";
+        }
+        document.getElementById("kupovinaBonova").onclick = function (){
+            window.location.href = "{% url 'kupovina_bonova' %}";
+        }
+        function delayedAlert(message, type) {
+            setTimeout(function () {
+                var icon = 'info'; // Default icon
+                if (type === 'success') {
+                    icon = 'success';
+                } else if (type === 'error') {
+                    icon = 'error';
+                }
+
+                Swal.fire({
+                    text: message,
+                    icon: icon
+                });
+            }, 200); // Display alert after 200 milliseconds
+        }
+
+        // Check if messages are available from Django
+        {% if messages %}
+            {% for message in messages %}
+                // Extract message content and type (if available)
+                var messageContent = "{{ message }}";
+                var messageType = "{{ message.tags }}"; // This will be 'success', 'error', or ''
+                // Call delayedAlert function with message content and type
+                delayedAlert(messageContent, messageType);
+            {% endfor %}
+        {% endif %}
+    </script>
+{% endblock %}

@@ -1,0 +1,72 @@
+<!-- Zlatko Golubović 0089/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+Ažuriranje studenata
+{% endblock %}
+{% block titleArea %}
+<img src="{% static 'StudAssistLogo-removebg.png' %}" width="200px" class="img-fluid">
+<h1 class="main-title">Ažuriranje {{vrsta}} - potvrda</h1>
+{% endblock %}
+{% block content %}
+<div class="row mb-2 justify-content-center">
+    <div class="col-sm-4">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{form.password.label}}<br>
+                {{form.password}}
+            </div>
+            <ul>
+                {% if errors in form %}
+                    {% for error in form.password.errors %}
+                        <li>{{error}}</li>
+                    {% endfor %}
+                    {% for error in form.not_field_errors %}
+                        <li>{{error}}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+            <button type="submit" class="btn btn-dark mt-2" name="cancel" onclick="setRequired(this)">Odustani</button>
+            <button type="submit" class="btn btn-primary mt-2" name="confirm" onclick="setRequired(this)">Potvrdi</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function setRequired(button) {
+        var field = document.getElementsByClassName("form-control")[0]
+        if (button.name === "confirm") {
+            field.required = true;
+        } else {
+            field.required = false;
+        }
+    }
+    function delayedAlert(message, type) {
+        setTimeout(function () {
+            var icon = 'info'; // Default icon
+            if (type === 'success') {
+                icon = 'success';
+            } else if (type === 'error') {
+                icon = 'error';
+            }
+
+            Swal.fire({
+                text: message,
+                icon: icon
+            });
+        }, 200); // Display alert after 200 milliseconds
+    }
+
+    // Check if messages are available from Django
+    {% if messages %}
+        {% for message in messages %}
+            // Extract message content and type (if available)
+            var messageContent = "{{ message }}";
+            var messageType = "{{ message.tags }}"; // This will be 'success', 'error', or ''
+            // Call delayedAlert function with message content and type
+            delayedAlert(messageContent, messageType);
+        {% endfor %}
+    {% endif %}
+</script>
+{% endblock %}

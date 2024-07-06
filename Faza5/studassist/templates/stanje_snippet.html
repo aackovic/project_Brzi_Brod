@@ -1,0 +1,13 @@
+<!-- Jelena Blagojević 0029/2021 -->
+<!-- Ema Paunović 0028/2021 -->
+<h4 class="table-title" id="tabla-stanje">Trenutno: {{ stanje.radi }}</h4>
+<p>Popunjenost: {{ stanje.broj_studenata }} studenata</p>
+<div class="progress prog-div">
+    <div class="progress-bar pgbar" style="width: {{ stanje.progres }}%;">{{ stanje.progres }}%</div>
+</div>
+<h4>Na meniju: </h4>
+<ul class="menu-list">
+    {% for obrok in stanje.obroci %}
+        <li>{{ obrok }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,33 @@
+<!-- Zlatko Golubović 0089/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+Administrator
+{% endblock %}
+{% block titleArea %}
+<img src="{% static 'StudAssistLogo-removebg.png' %}" width="200px" class="img-fluid">
+<h1 class="main-title">Administrator <strong>{{username}}</strong></h1>
+{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-sm-4 adminCard">
+        <div class="card my-2 bgadministrator">
+            <div class="card-body">
+                <img src="{{img.url}}" alt="Slika administratora" class="rounded-circle img-fluid border">
+                <h3>{{ime}}&nbsp;{{prezime}}</h3>
+                <ul class="list-group">
+                    <li class="list-group-item bgadministrator admin-lista">
+                        <a href="{% url 'brisanje_studenata' %}">Ažuriranje studentskog naloga</a>
+                    </li>
+                    <li class="list-group-item bgadministrator admin-lista">
+                        <a href="{% url 'registracija_moderatora' %}">Registracija moderatora</a>
+                    </li>
+                    <li class="list-group-item bgadministrator admin-lista">
+                        <a href="{% url 'brisanje_moderatora' %}">Ažuriranje moderatora</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

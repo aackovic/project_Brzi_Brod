@@ -1,0 +1,140 @@
+<!-- Jelena Blagojević 0029/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+    Kupovina bonova
+{% endblock %}
+{% block titleArea %}
+    <img src="{% static 'StudAssistLogo-removebg.png' %}" width="200px" class="img-fluid">
+    <h1 class="main-title">Bonovi</h1>
+{% endblock %}
+{% block content %}
+    <div class="container kupovina-bonova">
+        <div class="row">
+            <div class="col">
+                <h4>Trenutno stanje: {{ stanje }} din</h4>
+            </div>
+        </div>
+        <hr>
+        <div class="row meal-section">
+            <div class="col-sm-9">
+                <h5>Doručak</h5>
+                <p>Trenutno stanje: {{ dorucak }}</p>
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="d_1">
+                    {% csrf_token %}
+                    {{ d_1 }}
+                    <button type="submit" class="btn btn-primary">+1</button>
+                </form>
+
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="d_5">
+                    {% csrf_token %}
+                    {{ d_5 }}
+                    <button type="submit" class="btn btn-primary">+5</button>
+                </form>
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="d_10">
+                    {% csrf_token %}
+                    {{ d_10 }}
+                    <button type="submit" class="btn btn-primary">+10</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row meal-section">
+            <div class="col-sm-9">
+                <h5>Ručak</h5>
+                <p>Trenutno stanje: {{ rucak }}</p>
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="r_1">
+                    {% csrf_token %}
+                    {{ r_1 }}
+                    <button type="submit" class="btn btn-primary">+1</button>
+                </form>
+
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="r_5">
+                    {% csrf_token %}
+                    {{ r_5 }}
+                    <button type="submit" class="btn btn-primary">+5</button>
+                </form>
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="r_10">
+                    {% csrf_token %}
+                    {{ r_10 }}
+                    <button type="submit" class="btn btn-primary">+10</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row meal-section">
+            <div class="col-sm-9">
+                <h5>Večera</h5>
+                <p>Trenutno stanje: {{ vecera }}</p>
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="v_1">
+                    {% csrf_token %}
+                    {{ v_1 }}
+                    <button type="submit" class="btn btn-primary">+1</button>
+                </form>
+
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="v_5">
+                    {% csrf_token %}
+                    {{ v_5 }}
+                    <button type="submit" class="btn btn-primary">+5</button>
+                </form>
+            </div>
+            <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                <form method="post" id="v_10">
+                    {% csrf_token %}
+                    {{ v_10 }}
+                    <button type="submit" class="btn btn-primary">+10</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <div class="d-flex justify-content-center">
+            <a href="../student/" class="btn btn-primary">Završi kupovinu</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function delayedAlert(message, type) {
+            setTimeout(function () {
+                var icon = 'info'; // Default icon
+                if (type === 'success') {
+                    icon = 'success';
+                } else if (type === 'error') {
+                    icon = 'error';
+                }
+
+                Swal.fire({
+                    text: message,
+                    icon: icon
+                });
+            }, 200); // Display alert after 200 milliseconds
+        }
+
+        // Check if messages are available from Django
+        {% if messages %}
+            {% for message in messages %}
+                // Extract message content and type (if available)
+                var messageContent = "{{ message }}";
+                var messageType = "{{ message.tags }}"; // This will be 'success', 'error', or ''
+                // Call delayedAlert function with message content and type
+                delayedAlert(messageContent, messageType);
+            {% endfor %}
+        {% endif %}
+    </script>
+{% endblock %}

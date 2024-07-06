@@ -1,0 +1,99 @@
+<!-- Andrej Ačković 0263/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+Podforum
+{% endblock %}
+{% block titleArea %}
+<img src="{% static 'StudAssistLogo-removebg.png' %}">
+<h1 class="main-title">Forum</h1>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class ="container-fluid sadrzaj col-sm-12" id="sadrzajPodForum">
+
+        <div class="podForum">
+            <div class="podForum-naslov col-lg-10 text-forum-heading">
+                <h1>{{nazivTeme}}</h1>
+            </div>
+            <div class="podForum-odgovor text-forum-text">
+                <h3>Odgovori</h3>
+            </div>
+            <div class="podForum-resp text-forum-text">
+                <h4>{{placeholder}}</h4>
+            </div>
+        </div>
+        {% for odgovor in odgovori%}
+        <div class="podForumOdgovor-row flex-container text-forum-text">
+            <div class="col-lg-10 col-sm-12 forum-item-big forum-item img-parent">
+                <h4 style="font-style: italic; text-decoration: underline;">{{odgovor.naslov}}</h4>
+                {% if odgovor.slika %}
+                    <br>
+                    <img src="{{odgovor.slika.url}}" alt="" class="img-odgovor">
+                {% endif %}
+                <br>
+                <p style="text-align: justify;">{{odgovor.sadrzaj}}</p>
+            </div>
+            <div class="col-lg-2 col-sm-12 forum-item">
+                <b>Odgovor ostavio korisnik</b><br><b style="color: #234896; font-style: italic;">{{odgovor.korisnikIme}}</b>
+                <br>{{odgovor.korisnikTip}}
+                <br><small>{{odgovor.datum}}</small>
+            </div>
+        </div>
+        {% endfor %}
+        <hr>
+        {% if cond %}
+            <div class="container mt-5">
+                <h2>Dodaj komentar</h2>
+                <form method="POST" enctype='multipart/form-data'>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="title" class="form-label">Naslov</label>
+                    <input type="text" class="form-control" id="title" placeholder="Naslov" name="naslov" required>
+                </div>
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Komentar</label>
+                    <textarea class="form-control" id="comment" rows="5" placeholder="Tvoj komentar ide ovde..." name="comment" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="picture" class="form-label">Dodaj sliku</label>
+                    <input type="file" class="form-control" id="picture" name="picture">
+                </div>
+                <button type="submit" class="btn btn-primary">Postavi</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<hr>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function delayedAlert(message, type) {
+            setTimeout(function () {
+                var icon = 'info'; // Default icon
+                if (type === 'success') {
+                    icon = 'success';
+                } else if (type === 'error') {
+                    icon = 'error';
+                }
+
+                Swal.fire({
+                    text: message,
+                    icon: icon
+                });
+            }, 200); // Display alert after 200 milliseconds
+        }
+
+        // Check if messages are available from Django
+        {% if messages %}
+            {% for message in messages %}
+                // Extract message content and type (if available)
+                var messageContent = "{{ message }}";
+                var messageType = "{{ message.tags }}"; // This will be 'success', 'error', or ''
+                // Call delayedAlert function with message content and type
+                delayedAlert(messageContent, messageType);
+            {% endfor %}
+        {% endif %}
+</script>
+{% endblock %}

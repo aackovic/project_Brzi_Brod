@@ -1,0 +1,472 @@
+/* Jelena Blagojević 0029/2021 */
+/* Ema Paunović 0028/2021 */
+/* Andrej Ačković 0263/2021 */
+/* Zlatko Golubović 0089/2021 */
+.bgorange {
+    background-color: orange;
+}
+
+.col-sm-12 {
+    padding: 0;
+
+}
+
+.col-12 {
+    padding: 0;
+}
+
+.card-body img {
+    width: 150px;
+    height: 150px;
+}
+
+.navbar-brand {
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+.nav-font {
+    font-size: 17px;
+    color: whitesmoke;
+}
+
+.nav-font:hover {
+    color: lightgray;
+}
+
+.title-area {
+    min-height: 400px;
+    text-align: center;
+    justify-content: center !important;
+}
+
+.main-title {
+    font-size: 60px;
+    color: whitesmoke;
+}
+
+.navbar-brand:hover {
+    color: lightgray;
+}
+
+.footer {
+    color: whitesmoke;
+    background-color: orange;
+    text-align: center;
+    bottom: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.flex-container {
+    display: flex;
+
+    flex-flow: row wrap;
+
+    justify-content: space-around;
+
+    padding: 0;
+    margin: 0 0 5px;
+    list-style: none;
+}
+
+.flex-item {
+    background: orange;
+    width: 300px;
+    height: 400px;
+    margin-top: 10px;
+    color: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+}
+
+.flex-item img {
+    width: 300px;
+    height: 300px;
+}
+
+.menza-name {
+    font-size: 15px;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.menza-loc {
+    padding: 0;
+    margin: 6px 0 0;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.flex-item h4:hover {
+    color: lightgray;
+}
+
+.menza-loc:hover {
+    color: lightgray;
+}
+
+.personal-menza {
+    background-color: white;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.sadrzaj {
+    background-color: whitesmoke;
+}
+
+.naslovGlavni {
+    color: #f5f5f5;
+    text-align: center;
+    background-color: orange;
+    font-size: 72px;
+    font-weight: bold;
+}
+
+.naslovForum {
+    color: #f5f5f5;
+    text-align: center;
+    background-color: #ffa500;
+    font-size: 72px;
+    font-weight: bold;
+}
+
+.admin-lista {
+    margin: 1px 0;
+    border-width: 6px !important;
+}
+
+.podForum {
+    margin-top: 20px;
+}
+
+
+.podForum-naslov {
+    background-color: #4c8bff;
+    padding: 5px;
+    border-radius: 4px;
+    color: black;
+    margin: auto;
+    width: 80%;
+}
+
+.podForum-odgovor {
+    background-color: #d2dbf7;
+    padding: 5px;
+    border-radius: 4px;
+    color: black;
+    margin: auto;
+    width: 80%;
+}
+
+.podForum-resp {
+    background-color: #9bc8fa;
+    padding: 5px;
+    border-radius: 4px;
+    color: black;
+    margin: auto;
+    width: 80%;
+}
+
+.podForum-row {
+    display: grid;
+    grid-template-columns: 70% 13% 17%;
+    margin: auto;
+    width: 80%;
+}
+
+.podForumOdgovor-row {
+    margin: auto;
+    width: 80%;
+}
+
+.podForumOdgovor-column {
+    color: black;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 4px;
+    background-color: #d2dbf7;
+}
+
+.podForum-column {
+    color: black;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 4px;
+    background-color: #d2dbf7;
+}
+
+.podForum-description * {
+    margin-block: 0;
+}
+
+.img-odgovor {
+    max-width: 90%;
+    height: auto;
+    max-height: 250px;
+    display: block;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.pgNav {
+    font-size: large;
+}
+
+.forum-item {
+    border-style: solid !important;
+    border: 2px #ffa500;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.forum-item-big {
+    border-right: 0;
+}
+
+.text-forum-heading {
+    color: #333333;
+}
+
+.text-forum-text {
+    color: #333333;
+}
+
+.info-menza {
+    text-align: center;
+}
+
+.info-menza p {
+    margin: 0;
+    color: #333333;
+}
+
+.info-menza img {
+
+    width: 300px;
+    height: 300px;
+    margin-bottom: 5px;
+}
+
+.season-menu {
+    padding: 10px;
+    justify-content: center;
+}
+
+.daily-menu {
+    text-align: center;
+    color: #333333;
+    border: solid 2px #333333;
+    margin: 3px;
+}
+
+.daily-menu p {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+.div-rate {
+    text-align: center;
+    justify-content: center;
+}
+
+.rating {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: 3px solid black;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.rating-view {
+    margin-top: 10px;
+}
+
+.card {
+    margin: 10px;
+}
+
+.user-content p {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.checked {
+    color: orange;
+}
+
+.expand-btn {
+    background-color: orange;
+}
+
+.active-table {
+
+    width: 80%;
+    height: 90%;
+    border: 3px solid #333333;
+    border-radius: 4px;
+    background-color: whitesmoke;
+}
+
+.bgadministrator {
+    background-color: rgb(26, 74, 91) !important;
+}
+
+.bgmoderator {
+    background-color: rgb(108, 21, 108) !important;
+}
+
+.bgstudent {
+    background-color: rgb(39, 123, 39) !important;
+}
+
+.bglogin {
+    background-color: rgb(25, 25, 132) !important;
+}
+
+.registerForm {
+    font-weight: bold;
+    font-size: large;
+    margin: 0;
+}
+
+.btn-auto-width {
+    width: auto !important;
+}
+
+.logintext {
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.errorLogin, .errorAmount {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+}
+
+.studentSidebar .card, .adminCard .card {
+    background-color: rgb(39, 123, 39);
+    color: white;
+}
+
+.studentSidebar .card, .studentContent .card, .adminCard .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.studentSidebar .card .card-body, .adminCard .card .card-body {
+    text-align: center;
+}
+
+.studentSidebar .card .card-body a, .adminCard .card .card-body a, .linkNedekorisani a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.linkNedekorisani a:hover {
+    color: lightgray;
+}
+
+.studentSidebar .card .card-body ul, .adminCard .card .card-body ul {
+    text-align: left !important;
+}
+
+.studentContent .content {
+    background-color: whitesmoke;
+}
+
+.studentSidebar .flex-item {
+    background-color: rgb(26, 74, 91);
+    color: white;
+}
+
+.money-transfer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.kupovina-bonova {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-text {
+    color: #333333;
+}
+
+.form-select {
+    width: 40%;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.prog-div {
+
+    margin: 5px;
+
+}
+
+.pgbar {
+    background-color: #ffa500;
+}
+
+.table-title {
+    color: lightgreen;
+}
+
+.menu-list {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+h5 {
+    margin: 0;
+}
+
+.modal-open .student-body {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+}
+
+.datumRecenzije {
+    text-align: right;
+    margin: 0 2px 2px 0 !important;
+}
+
+.teloRecenzije {
+    margin: 0;
+}
+
+.card .user-content, .card .ratings {
+    text-align: center;
+}
+
+.modal-content {
+    width: 100%;
+}
+
+#recenzijaForm .form-control,
+#recenzijaForm .btn {
+    width: 100%;
+}

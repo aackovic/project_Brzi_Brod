@@ -1,0 +1,229 @@
+<!-- Jelena Blagojević 0029/2021 -->
+<!-- Ema Paunović 0028/2021 -->
+<!-- Zlatko Golubović 0089/2021 -->
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+    Moderator
+{% endblock %}
+{% block titleArea %}
+    <img src="{% static 'StudAssistLogo-removebg.png' %}" width="200px" class="img-fluid">
+    <h1 class="main-title">Moderator</h1>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-4 studentSidebar">
+            <div class="card my-2 bgmoderator sidebar">
+                <div class="card-body">
+                    <img src="{{ img.url }}" alt="Slika moderatora" width="150px"
+                         class="rounded-circle img-fluid">
+                    <h3>Moderator {{ username }}</h3>
+                    <!--<a href="{% url 'moderator_promena_menija' %}">Promeni meni</a>-->
+                    <button type="button" class="btn btn-light my-1" data-bs-toggle="modal"
+                            data-bs-target="#ModalOtvori" id="otvoriMenzu">
+                        Otvori menzu
+                    </button>
+                    <button type="button" class="btn btn-light my-1" data-bs-toggle="modal"
+                            data-bs-target="#ModalZatvori" id="zatvoriMenzu">
+                        Zatvori menzu
+                    </button>
+                    <button type="button" class="btn btn-light my-1" data-bs-toggle="modal"
+                            data-bs-target="#ModalRegistruj" id="regObrok">
+                        Registruj obrok
+                    </button>
+                    <button type="button" class="btn btn-light my-1" data-bs-toggle="modal"
+                            data-bs-target="#ModalUlaz" id="ulaz">
+                        Ulaz studenta
+                    </button>
+                    <button type="button" class="btn btn-light my-1" data-bs-toggle="modal"
+                            data-bs-target="#ModalIzlaz" id="izlaz">
+                        Izlaz studenta
+                    </button>
+                    <button type="button" class="btn btn-light my-1" id="updateMenu">
+                        Promeni meni
+                    </button>
+                    <button type="button" class="btn btn-light my-1" id="updateTable">
+                        Promeni tablu
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 studentContent">
+            <div class="card my-2 content">
+                <h4 class="p-2">Opšti podaci</h4>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Ime i prezime</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ ime }}&nbsp;{{ prezime }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Email</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ email }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Adresa</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ adresa }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Datum rođenja</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ datumrodjenja }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Telefon</h5>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ brtel }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalOtvori" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content align-items-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel" style="color: black;">Otvori menzu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ formTip }}
+                        <input type="submit" class="btn btn-primary" style="margin-top: 8px" value="Potvrdi">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalZatvori" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content align-items-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel" style="color: black;">Zatvori menzu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ formZatvori }}
+                        <input type="submit" class="btn btn-primary" value="Potvrdi">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalRegistruj" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content align-items-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel" style="color: black;">Registruj obrok</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ formKupi }}
+                        <input type="submit" class="btn btn-primary" style="margin-top: 8px" value="Potvrdi">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalUlaz" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content align-items-center">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title" id="qrModalLabel" style="color: black;">Registruj ulaz</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ formUlaz }}
+                        <input type="submit" class="btn btn-primary" style="margin-top: 8px" value="Potvrdi">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ModalIzlaz" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content align-items-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel" style="color: black;">Registruj izlaz</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ formIzlaz }}
+                        <input type="submit" class="btn btn-primary" style="margin-top: 8px" value="Potvrdi">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        document.getElementById("updateTable").onclick = function () {
+            window.location.href = "{% url 'azuriraj_tablu' %}";
+        };
+
+        document.getElementById("updateMenu").onclick = function () {
+            window.location.href = "{% url 'moderator_promena_menija' %}";
+        };
+
+        function delayedAlert(message, type) {
+            setTimeout(function () {
+                var icon = 'info'; // Default icon
+                if (type === 'success') {
+                    icon = 'success';
+                } else if (type === 'error') {
+                    icon = 'error';
+                }
+
+                Swal.fire({
+                    text: message,
+                    icon: icon
+                });
+            }, 200); // Display alert after 200 milliseconds
+        }
+
+        // Check if messages are available from Django
+        {% if messages %}
+            {% for message in messages %}
+                // Extract message content and type (if available)
+                var messageContent = "{{ message }}";
+                var messageType = "{{ message.tags }}"; // This will be 'success', 'error', or ''
+                // Call delayedAlert function with message content and type
+                delayedAlert(messageContent, messageType);
+            {% endfor %}
+        {% endif %}
+    </script>
+{% endblock %}
